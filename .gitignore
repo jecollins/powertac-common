@@ -1,7 +1,7 @@
 # Eclipse project files
-.project
-.settings
-.classpath
+#.project
+#.settings
+#.classpath
 
 # IntelliJ IDEA project files
 *.iml
