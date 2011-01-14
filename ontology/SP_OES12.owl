@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.powertac.org/ontologies/2010/11/SP_OES12.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.powertac.org/ontologies/2010/11/SP_OES12.owl">
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Import>http://www.powertac.org/ontologies/2010/10/tariff.owl</Import>
+    <Declaration>
+        <NamedIndividual IRI="#Day"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#EndOfDay"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ExitFee"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MinDuration"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Night"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#NightRate"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OnlineEnergySaver12"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PrimaryRate"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ScottishPower"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SecondaryRate"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StandingCharge"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StartOfDay"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ValidAt"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ValidUntil"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#tier1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#DailyTimeslot"/>
+        <NamedIndividual IRI="#Day"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#TimeOfDay"/>
+        <NamedIndividual IRI="#EndOfDay"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#EarlyWithdrawalPenalty"/>
+        <NamedIndividual IRI="#ExitFee"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#TimeInterval"/>
+        <NamedIndividual IRI="#MinDuration"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#DailyTimeslot"/>
+        <NamedIndividual IRI="#Night"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#FixedRate"/>
+        <NamedIndividual IRI="#NightRate"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#Tariff"/>
+        <NamedIndividual IRI="#OnlineEnergySaver12"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#FixedRate"/>
+        <NamedIndividual IRI="#PrimaryRate"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#Broker"/>
+        <NamedIndividual IRI="#ScottishPower"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#FixedRate"/>
+        <NamedIndividual IRI="#SecondaryRate"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#PeriodicPayment"/>
+        <NamedIndividual IRI="#StandingCharge"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#TimeOfDay"/>
+        <NamedIndividual IRI="#StartOfDay"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#AbsoluteTime"/>
+        <NamedIndividual IRI="#ValidAt"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#AbsoluteTime"/>
+        <NamedIndividual IRI="#ValidUntil"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#Tier"/>
+        <NamedIndividual IRI="#tier1"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#begins"/>
+        <NamedIndividual IRI="#Day"/>
+        <NamedIndividual IRI="#StartOfDay"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#isPaymentFor"/>
+        <NamedIndividual IRI="#ExitFee"/>
+        <NamedIndividual IRI="#OnlineEnergySaver12"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#begins"/>
+        <NamedIndividual IRI="#MinDuration"/>
+        <NamedIndividual IRI="#ValidAt"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#begins"/>
+        <NamedIndividual IRI="#Night"/>
+        <NamedIndividual IRI="#EndOfDay"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#appliesDuring"/>
+        <NamedIndividual IRI="#NightRate"/>
+        <NamedIndividual IRI="#Night"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#isRateOf"/>
+        <NamedIndividual IRI="#NightRate"/>
+        <NamedIndividual IRI="#OnlineEnergySaver12"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasMinDuration"/>
+        <NamedIndividual IRI="#OnlineEnergySaver12"/>
+        <NamedIndividual IRI="#MinDuration"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasRate"/>
+        <NamedIndividual IRI="#OnlineEnergySaver12"/>
+        <NamedIndividual IRI="#PrimaryRate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasRate"/>
+        <NamedIndividual IRI="#OnlineEnergySaver12"/>
+        <NamedIndividual IRI="#SecondaryRate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#isOfferedBy"/>
+        <NamedIndividual IRI="#OnlineEnergySaver12"/>
+        <NamedIndividual IRI="#ScottishPower"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#isValidUntil"/>
+        <NamedIndividual IRI="#OnlineEnergySaver12"/>
+        <NamedIndividual IRI="#ValidUntil"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#appliesDuring"/>
+        <NamedIndividual IRI="#PrimaryRate"/>
+        <NamedIndividual IRI="#Day"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#isRateFor"/>
+        <NamedIndividual IRI="#PrimaryRate"/>
+        <NamedIndividual IRI="#tier1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#isRateOf"/>
+        <NamedIndividual IRI="#PrimaryRate"/>
+        <NamedIndividual IRI="#OnlineEnergySaver12"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#appliesDuring"/>
+        <NamedIndividual IRI="#SecondaryRate"/>
+        <NamedIndividual IRI="#Day"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#isRateOf"/>
+        <NamedIndividual IRI="#SecondaryRate"/>
+        <NamedIndividual IRI="#OnlineEnergySaver12"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#isPaymentFor"/>
+        <NamedIndividual IRI="#StandingCharge"/>
+        <NamedIndividual IRI="#OnlineEnergySaver12"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasRate"/>
+        <NamedIndividual IRI="#tier1"/>
+        <NamedIndividual IRI="#PrimaryRate"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasDuration"/>
+        <NamedIndividual IRI="#Day"/>
+        <Literal datatypeIRI="&xsd;integer">13</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasValue"/>
+        <NamedIndividual IRI="#EndOfDay"/>
+        <Literal datatypeIRI="&xsd;integer">20</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasValue"/>
+        <NamedIndividual IRI="#ExitFee"/>
+        <Literal datatypeIRI="&xsd;double">30.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasDuration"/>
+        <NamedIndividual IRI="#MinDuration"/>
+        <Literal datatypeIRI="&xsd;integer">4380</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasDuration"/>
+        <NamedIndividual IRI="#Night"/>
+        <Literal datatypeIRI="&xsd;integer">11</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasValue"/>
+        <NamedIndividual IRI="#NightRate"/>
+        <Literal datatypeIRI="&xsd;double">4.768</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasValue"/>
+        <NamedIndividual IRI="#PrimaryRate"/>
+        <Literal datatypeIRI="&xsd;double">18.457</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasValue"/>
+        <NamedIndividual IRI="#SecondaryRate"/>
+        <Literal datatypeIRI="&xsd;double">10.523</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasValue"/>
+        <NamedIndividual IRI="#StandingCharge"/>
+        <Literal datatypeIRI="&xsd;double">0.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasValue"/>
+        <NamedIndividual IRI="#StartOfDay"/>
+        <Literal datatypeIRI="&xsd;integer">7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasValue"/>
+        <NamedIndividual IRI="#ValidAt"/>
+        <Literal datatypeIRI="&xsd;integer">96360</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasValue"/>
+        <NamedIndividual IRI="#ValidUntil"/>
+        <Literal datatypeIRI="&xsd;integer">106560</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasMaxValue"/>
+        <NamedIndividual IRI="#tier1"/>
+        <Literal datatypeIRI="&xsd;double">225.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.powertac.org/ontologies/2010/10/tariff.owl#hasMinValue"/>
+        <NamedIndividual IRI="#tier1"/>
+        <Literal datatypeIRI="&xsd;double">0.0</Literal>
+    </DataPropertyAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <IRI>#EndOfDay</IRI>
+        <Literal datatypeIRI="&xsd;string">Start of night pricing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <IRI>#StartOfDay</IRI>
+        <Literal datatypeIRI="&xsd;string">Start of daytime pricing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/date"/>
+        <IRI>#ValidUntil</IRI>
+        <Literal datatypeIRI="&xsd;string">29 Feb 2012</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

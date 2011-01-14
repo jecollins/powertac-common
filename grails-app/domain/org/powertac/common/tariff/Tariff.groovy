@@ -30,11 +30,8 @@ class Tariff implements Serializable
     OFFERED, ACTIVE, LEGACY 
   }
   
-  /** Unique ID for this Tariff */
-  String id = IdGenerator.createId()
-  
-  /** ID of offering broker */
-  String offeredBy
+  /** Unique ID for this Tariff, composed from Broker ID and unique ID */
+  String id
   
   /** Last date new subscriptions will be accepted */
   DateTime expiration
@@ -52,26 +49,26 @@ class Tariff implements Serializable
    * One-time payment for subscribing to tariff, positive for payment
    * from customer, negative for payment to customer.
    */
-  double signupPayment = 0.0
+  BigDecimal signupPayment = 0
   
   /**
    * Payment from customer to broker for canceling subscription before
    * minDuration has elapsed.
    */
-  double earlyWithdrawPayment = 0.0
+  BigDecimal earlyWithdrawPayment = 0
   
   /** Flat payment per period for two-part tariffs */
-  double periodicPayment = 0.0
+  BigDecimal periodicPayment = 0
   
   /** Returns the rate table */
-  AbstractRate[] rates
+  Rate[] rates
   
   /** IDs of tariffs superseded by this Tariff */
-  Tariff[] supersedes
+  String[] supersedes
 
+  static hasMany = [rates:Rate, supersedes:String]
   static constraints = {
     id(nullable: false, blank: false, unique: true)
-    offeredBy(nullable: false)
     expiration(nullable: false)
     state(nullable: false)
     minDuration()

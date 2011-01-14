@@ -1,0 +1,987 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY tariff "http://www.powertac.org/ontologies/2010/10/tariff.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.powertac.org/ontologies/2010/10/tariff.owl#"
+     xml:base="http://www.powertac.org/ontologies/2010/10/tariff.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:tariff="http://www.powertac.org/ontologies/2010/10/tariff.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.powertac.org/ontologies/2010/10/tariff.owl">
+        <dc:creator rdf:datatype="&xsd;string">John Collins</dc:creator>
+        <rdfs:comment rdf:datatype="&xsd;string">Tariff properties for Power TAC simulation environment</rdfs:comment>
+        <owl:versionInfo rdf:datatype="&xsd;string">Version 0.1</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#appliesDuring -->
+
+    <owl:ObjectProperty rdf:about="&tariff;appliesDuring"/>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#begins -->
+
+    <owl:ObjectProperty rdf:about="&tariff;begins">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#covers -->
+
+    <owl:ObjectProperty rdf:about="&tariff;covers">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="&tariff;PowerType"/>
+        <rdfs:domain rdf:resource="&tariff;Rate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#expires -->
+
+    <owl:ObjectProperty rdf:about="&tariff;expires">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasFixedPart -->
+
+    <owl:ObjectProperty rdf:about="&tariff;hasFixedPart">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasMaxDuration -->
+
+    <owl:ObjectProperty rdf:about="&tariff;hasMaxDuration">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasMaxDuration"/>
+                <owl:onClass rdf:resource="&tariff;TimeInterval"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasMinDuration -->
+
+    <owl:ObjectProperty rdf:about="&tariff;hasMinDuration"/>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasNoticeInterval -->
+
+    <owl:ObjectProperty rdf:about="&tariff;hasNoticeInterval">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasPayment -->
+
+    <owl:ObjectProperty rdf:about="&tariff;hasPayment">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasRate -->
+
+    <owl:ObjectProperty rdf:about="&tariff;hasRate">
+        <rdfs:range rdf:resource="&tariff;Rate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasSubscription -->
+
+    <owl:ObjectProperty rdf:about="&tariff;hasSubscription">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&tariff;Customer"/>
+        <rdfs:range rdf:resource="&tariff;Subscription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasVariablePart -->
+
+    <owl:ObjectProperty rdf:about="&tariff;hasVariablePart">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#isCoveredBy -->
+
+    <owl:ObjectProperty rdf:about="&tariff;isCoveredBy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <owl:inverseOf rdf:resource="&tariff;covers"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#isOfferedBy -->
+
+    <owl:ObjectProperty rdf:about="&tariff;isOfferedBy">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="&tariff;Broker"/>
+        <rdfs:domain rdf:resource="&tariff;Tariff"/>
+        <owl:inverseOf rdf:resource="&tariff;offers"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#isPaymentFor -->
+
+    <owl:ObjectProperty rdf:about="&tariff;isPaymentFor">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <owl:inverseOf rdf:resource="&tariff;hasPayment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#isRateFor -->
+
+    <owl:ObjectProperty rdf:about="&tariff;isRateFor"/>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#isRateOf -->
+
+    <owl:ObjectProperty rdf:about="&tariff;isRateOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&tariff;Rate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#isSubscribedBy -->
+
+    <owl:ObjectProperty rdf:about="&tariff;isSubscribedBy">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="&tariff;Subscription"/>
+        <rdfs:domain rdf:resource="&tariff;Tariff"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#isSubscriptionFor -->
+
+    <owl:ObjectProperty rdf:about="&tariff;isSubscriptionFor">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&tariff;Customer"/>
+        <rdfs:domain rdf:resource="&tariff;Subscription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#isSubscriptionToTariff -->
+
+    <owl:ObjectProperty rdf:about="&tariff;isSubscriptionToTariff">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&tariff;Subscription"/>
+        <rdfs:range rdf:resource="&tariff;Tariff"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#isValidUntil -->
+
+    <owl:ObjectProperty rdf:about="&tariff;isValidUntil"/>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#offers -->
+
+    <owl:ObjectProperty rdf:about="&tariff;offers">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&tariff;Broker"/>
+        <rdfs:range rdf:resource="&tariff;Tariff"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#supercedes -->
+
+    <owl:ObjectProperty rdf:about="&tariff;supercedes">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <dc:description rdf:datatype="&xsd;string">If a new Tariff supercedes some other old Tariff, then Customers are automatically converted from the old Tariff to the new Tariff when their subscriptions to the old Tariff expire.</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasCarbonEmission -->
+
+    <owl:DatatypeProperty rdf:about="&tariff;hasCarbonEmission">
+        <dc:description rdf:datatype="&xsd;string">Carbon emission in kg/kWh</dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasChargeEfficiency -->
+
+    <owl:DatatypeProperty rdf:about="&tariff;hasChargeEfficiency">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <dc:description>Ratio of energy input to energy output.</dc:description>
+        <dc:description>
+            <rdf:Description/>
+        </dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasDuration -->
+
+    <owl:DatatypeProperty rdf:about="&tariff;hasDuration"/>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasInterruptibleProportion -->
+
+    <owl:DatatypeProperty rdf:about="&tariff;hasInterruptibleProportion">
+        <dc:description rdf:datatype="&xsd;string">Proportion of a timeslot during which this load can be interrupted. Brokers should assume that the interrupted load will reappear during the following timeslot.</dc:description>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasMaxValue -->
+
+    <owl:DatatypeProperty rdf:about="&tariff;hasMaxValue"/>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasMinValue -->
+
+    <owl:DatatypeProperty rdf:about="&tariff;hasMinValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasNominalCapacity -->
+
+    <owl:DatatypeProperty rdf:about="&tariff;hasNominalCapacity">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <dc:description>Nominal capacity for power production units is the production under &quot;nominal&quot; conditions. For example, a solar array will generate its nominal capacity when sunlight is striking it from a perpendicular direction, free of obstruction (shadows, clouds, haze).</dc:description>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="&tariff;hasValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#AbsoluteTime -->
+
+    <owl:Class rdf:about="&tariff;AbsoluteTime">
+        <rdfs:subClassOf rdf:resource="&tariff;Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Actor -->
+
+    <owl:Class rdf:about="&tariff;Actor">
+        <owl:disjointWith rdf:resource="&tariff;Payment"/>
+        <owl:disjointWith rdf:resource="&tariff;PowerSource"/>
+        <owl:disjointWith rdf:resource="&tariff;PowerType"/>
+        <owl:disjointWith rdf:resource="&tariff;Rate"/>
+        <owl:disjointWith rdf:resource="&tariff;Subscription"/>
+        <owl:disjointWith rdf:resource="&tariff;Tariff"/>
+        <owl:disjointWith rdf:resource="&tariff;Time"/>
+        <owl:disjointWith rdf:resource="&tariff;TimeInterval"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#BatteryStorage -->
+
+    <owl:Class rdf:about="&tariff;BatteryStorage">
+        <rdfs:subClassOf rdf:resource="&tariff;Storage"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasChargeEfficiency"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;double"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                            </rdf:Description>
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;double">1.0</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description rdf:datatype="&xsd;string">May be charged or discharged subject to constraints. Nominal capacity is the quantity of energy (kWh) that may be extracted when fully charged. </dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Broker -->
+
+    <owl:Class rdf:about="&tariff;Broker">
+        <rdfs:subClassOf rdf:resource="&tariff;Actor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;offers"/>
+                <owl:someValuesFrom rdf:resource="&tariff;Tariff"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#CHP -->
+
+    <owl:Class rdf:about="&tariff;CHP">
+        <rdfs:subClassOf rdf:resource="&tariff;Production"/>
+        <dc:description rdf:datatype="&xsd;string">Interruptible, and constrained as ThermalStorage. In other words, it&#39;s interruptible if the temperature of the heated medium is above a minimum value.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#CombinationRate -->
+
+    <owl:Class rdf:about="&tariff;CombinationRate">
+        <rdfs:subClassOf rdf:resource="&tariff;Rate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasFixedPart"/>
+                <owl:someValuesFrom rdf:resource="&tariff;FixedRate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasVariablePart"/>
+                <owl:someValuesFrom rdf:resource="&tariff;VariableRate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description rdf:datatype="&xsd;string">A rate with a fixed part and a variable part. The fixed part, for example, could cover distribution costs, while the variable rate might be related to the current spot market rate.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Consumption -->
+
+    <owl:Class rdf:about="&tariff;Consumption">
+        <rdfs:subClassOf rdf:resource="&tariff;PowerType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Customer -->
+
+    <owl:Class rdf:about="&tariff;Customer">
+        <rdfs:subClassOf rdf:resource="&tariff;Actor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasSubscription"/>
+                <owl:someValuesFrom rdf:resource="&tariff;Subscription"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#DailyTimeslot -->
+
+    <owl:Class rdf:about="&tariff;DailyTimeslot">
+        <rdfs:subClassOf rdf:resource="&tariff;Timeslot"/>
+        <dc:description rdf:datatype="&xsd;string">A single timeslot offset from midnight during an arbitrary day</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#DayOfMonth -->
+
+    <owl:Class rdf:about="&tariff;DayOfMonth">
+        <rdfs:subClassOf rdf:resource="&tariff;RelativeTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#DayOfWeek -->
+
+    <owl:Class rdf:about="&tariff;DayOfWeek">
+        <rdfs:subClassOf rdf:resource="&tariff;RelativeTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#EarlyWithdrawalPenalty -->
+
+    <owl:Class rdf:about="&tariff;EarlyWithdrawalPenalty">
+        <rdfs:subClassOf rdf:resource="&tariff;OneTimePayment"/>
+        <dc:description rdf:datatype="&xsd;string">Payment due if subscriber withdraws before minDuration has passed since Tariff went into effect.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#FixedRate -->
+
+    <owl:Class rdf:about="&tariff;FixedRate">
+        <rdfs:subClassOf rdf:resource="&tariff;Rate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasValue"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description rdf:datatype="&xsd;string">Fixed amount per kWh</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#InterruptibleConsumption -->
+
+    <owl:Class rdf:about="&tariff;InterruptibleConsumption">
+        <rdfs:subClassOf rdf:resource="&tariff;Consumption"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasNominalCapacity"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasInterruptibleProportion"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;double"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                            </rdf:Description>
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;double">1.0</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#MarketRate -->
+
+    <owl:Class rdf:about="&tariff;MarketRate">
+        <rdfs:subClassOf rdf:resource="&tariff;VariableRate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#OneTimePayment -->
+
+    <owl:Class rdf:about="&tariff;OneTimePayment">
+        <rdfs:subClassOf rdf:resource="&tariff;Payment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Payment -->
+
+    <owl:Class rdf:about="&tariff;Payment">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;isPaymentFor"/>
+                <owl:someValuesFrom rdf:resource="&tariff;Tariff"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasValue"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description rdf:datatype="&xsd;string">A fixed (not usage-based) payment due at some point during the term of a Subscription</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#PeriodicPayment -->
+
+    <owl:Class rdf:about="&tariff;PeriodicPayment">
+        <rdfs:subClassOf rdf:resource="&tariff;Payment"/>
+        <dc:description rdf:datatype="&xsd;string">Fixed part of a two-part tariff, charge per timeslot.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#PowerSource -->
+
+    <owl:Class rdf:about="&tariff;PowerSource">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasCarbonEmission"/>
+                <owl:someValuesFrom rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#PowerType -->
+
+    <owl:Class rdf:about="&tariff;PowerType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;isCoveredBy"/>
+                <owl:someValuesFrom rdf:resource="&tariff;Rate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&tariff;Tariff"/>
+        <dc:description rdf:datatype="&xsd;string">A different PowerType is needed for each class of usage or production for which different Tariffs might be offered. PowerTypes are distinguished by whether they represent production, consumption, or both (storage), whether they are interruptible, and what sorts of constraints apply.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Production -->
+
+    <owl:Class rdf:about="&tariff;Production">
+        <rdfs:subClassOf rdf:resource="&tariff;PowerType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasNominalCapacity"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Rate -->
+
+    <owl:Class rdf:about="&tariff;Rate">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;isRateOf"/>
+                <owl:onClass rdf:resource="&tariff;Tariff"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;covers"/>
+                <owl:onClass rdf:resource="&tariff;PowerType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;isRateFor"/>
+                <owl:onClass rdf:resource="&tariff;Tier"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;appliesDuring"/>
+                <owl:someValuesFrom rdf:resource="&tariff;DailyTimeslot"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;appliesDuring"/>
+                <owl:someValuesFrom rdf:resource="&tariff;WeeklyTimeslot"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&tariff;Tariff"/>
+        <dc:description rdf:datatype="&xsd;string">Price per kWh for production or consumption of electrical energy. Positive values represent payments due from subscriber to offerer; negative values represent payments due from offerer to subscriber.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#RelativeTime -->
+
+    <owl:Class rdf:about="&tariff;RelativeTime">
+        <rdfs:subClassOf rdf:resource="&tariff;Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Solar -->
+
+    <owl:Class rdf:about="&tariff;Solar">
+        <rdfs:subClassOf rdf:resource="&tariff;Production"/>
+        <dc:description rdf:datatype="&xsd;string">Not interruptible</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Storage -->
+
+    <owl:Class rdf:about="&tariff;Storage">
+        <rdfs:subClassOf rdf:resource="&tariff;PowerType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasNominalCapacity"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description rdf:datatype="&xsd;string">Energy storage usable as balancing capacity.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Subscription -->
+
+    <owl:Class rdf:about="&tariff;Subscription">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;isSubscriptionToTariff"/>
+                <owl:onClass rdf:resource="&tariff;Tariff"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;begins"/>
+                <owl:onClass rdf:resource="&tariff;AbsoluteTime"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;expires"/>
+                <owl:onClass rdf:resource="&tariff;AbsoluteTime"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;isSubscriptionFor"/>
+                <owl:onClass rdf:resource="&tariff;Customer"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&tariff;Tariff"/>
+        <dc:description rdf:datatype="&xsd;string">Subscription is an association between a Customer and a Tariff. At any time, a Customer may have a current Subscription, which expires at some point in the future, and a second Subscription that begins when the first expires. Thus we prevent gaps in service.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#SubscriptionPayment -->
+
+    <owl:Class rdf:about="&tariff;SubscriptionPayment">
+        <rdfs:subClassOf rdf:resource="&tariff;OneTimePayment"/>
+        <dc:description rdf:datatype="&xsd;string">Payment due from subscriber when subscription begins. Negative values are credits to subscriber, positive values are debits.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Tariff -->
+
+    <owl:Class rdf:about="&tariff;Tariff">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;expires"/>
+                <owl:onClass rdf:resource="&tariff;AbsoluteTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;supercedes"/>
+                <owl:someValuesFrom rdf:resource="&tariff;Tariff"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasMaxDuration"/>
+                <owl:onClass rdf:resource="&tariff;TimeInterval"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;isValidUntil"/>
+                <owl:onClass rdf:resource="&tariff;AbsoluteTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;isSubscribedBy"/>
+                <owl:someValuesFrom rdf:resource="&tariff;Subscription"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;isOfferedBy"/>
+                <owl:onClass rdf:resource="&tariff;Broker"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasMinDuration"/>
+                <owl:onClass rdf:resource="&tariff;TimeInterval"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasRate"/>
+                <owl:someValuesFrom rdf:resource="&tariff;Rate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;begins"/>
+                <owl:someValuesFrom rdf:resource="&tariff;AbsoluteTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasPayment"/>
+                <owl:someValuesFrom rdf:resource="&tariff;Payment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&tariff;Time"/>
+        <owl:disjointWith rdf:resource="&tariff;TimeInterval"/>
+        <dc:description rdf:datatype="&xsd;string">An agreement between a Broker and a subscriber (typically a Customer) specifying prices and conditions for supply and purchase of energy over some period of time.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#ThermalStorage -->
+
+    <owl:Class rdf:about="&tariff;ThermalStorage">
+        <rdfs:subClassOf rdf:resource="&tariff;Storage"/>
+        <dc:description rdf:datatype="&xsd;string">May be interrupted subject to constraints (typically temperature constraint). Nominal capacity is the maximum quantity of energy in kWh that can be stored.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Tier -->
+
+    <owl:Class rdf:about="&tariff;Tier">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasRate"/>
+                <owl:someValuesFrom rdf:resource="&tariff;Rate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasMinValue"/>
+                <owl:someValuesFrom rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasMaxValue"/>
+                <owl:someValuesFrom rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description rdf:datatype="&xsd;string">A consumption or production range to which a specific rate might apply in a tiered tariff. For example, in the tariffs offered by Xcel Energy in its Smart Grid City demonstration project (see http://smartgridcity.xcelenergy.com/pricing-options.asp), customers pay a higher rate if their monthly consumption exceeds a threshold.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Time -->
+
+    <owl:Class rdf:about="&tariff;Time">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasValue"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">0</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#TimeInterval -->
+
+    <owl:Class rdf:about="&tariff;TimeInterval">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;begins"/>
+                <owl:onClass rdf:resource="&tariff;Time"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasDuration"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minExclusive rdf:datatype="&xsd;integer">0</xsd:minExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#TimeOfDay -->
+
+    <owl:Class rdf:about="&tariff;TimeOfDay">
+        <rdfs:subClassOf rdf:resource="&tariff;RelativeTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Timeslot -->
+
+    <owl:Class rdf:about="&tariff;Timeslot">
+        <rdfs:subClassOf rdf:resource="&tariff;TimeInterval"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#VariableRate -->
+
+    <owl:Class rdf:about="&tariff;VariableRate">
+        <rdfs:subClassOf rdf:resource="&tariff;Rate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasMinValue"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasNoticeInterval"/>
+                <owl:someValuesFrom rdf:resource="&tariff;TimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tariff;hasMaxValue"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#WeeklyTimeslot -->
+
+    <owl:Class rdf:about="&tariff;WeeklyTimeslot">
+        <rdfs:subClassOf rdf:resource="&tariff;Timeslot"/>
+        <dc:description rdf:datatype="&xsd;string">A 24-hour period, starting at midnight, during a single day, offset from the beginning of an arbitrary week.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.powertac.org/ontologies/2010/10/tariff.owl#Wind -->
+
+    <owl:Class rdf:about="&tariff;Wind">
+        <rdfs:subClassOf rdf:resource="&tariff;Production"/>
+        <dc:description rdf:datatype="&xsd;string">Not interruptible</dc:description>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

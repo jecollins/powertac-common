@@ -18,7 +18,7 @@ package org.powertac.common
 
 import grails.test.GrailsUnitTestCase
 
-class TariffTests extends GrailsUnitTestCase {
+class TariffDNTests extends GrailsUnitTestCase {
   protected void setUp() {
     super.setUp()
     mockForConstraintsTests(TariffDN)
