@@ -18,7 +18,7 @@ package org.powertac.common.interfaces;
 
 import org.powertac.common.CashUpdate;
 import org.powertac.common.PositionUpdate;
-import org.powertac.common.Tariff;
+import org.powertac.common.TariffDN;
 import org.powertac.common.command.*;
 import org.powertac.common.exceptions.*;
 
@@ -28,7 +28,7 @@ import java.util.List;
  * Common interface for the PowerTAC accounting service.
  * The accouting service module is owner of the {@link org.powertac.common.CashUpdate},
  * {@link org.powertac.common.PositionUpdate}, {@link org.powertac.common.MeterReading},
- * {@link org.powertac.common.Customer}, and {@link org.powertac.common.Tariff} database
+ * {@link org.powertac.common.Customer}, and {@link org.powertac.common.TariffDN} database
  * tables. It's main purpose is to do the bookeeping throught the competition by
  * manipulating the above mentioned database tables recording cash, position, tariff or
  * metering changes.
@@ -87,7 +87,7 @@ public interface AccountingService extends CompetitionBaseEvents {
    * @return Tariff updated tariff object that reflects the revocation of the tariff
    * @throws org.powertac.common.exceptions.TariffRevokeException is thrown if the tariff publishing fails
    */
-  public Tariff processTariffRevoke(TariffDoRevokeCmd tariffDoRevokeCmd) throws TariffRevokeException;
+  public TariffDN processTariffRevoke(TariffDoRevokeCmd tariffDoRevokeCmd) throws TariffRevokeException;
 
 
   /**
@@ -95,7 +95,7 @@ public interface AccountingService extends CompetitionBaseEvents {
    *
    * @return a list of all active tariffs, which might be empty if no tariffs are published
    */
-  List<Tariff> publishTariffList();
+  List<TariffDN> publishTariffList();
 
 
   /**

@@ -21,7 +21,7 @@ import grails.test.GrailsUnitTestCase
 class TariffTests extends GrailsUnitTestCase {
   protected void setUp() {
     super.setUp()
-    mockForConstraintsTests(Tariff)
+    mockForConstraintsTests(TariffDN)
   }
 
   protected void tearDown() {
@@ -29,7 +29,7 @@ class TariffTests extends GrailsUnitTestCase {
   }
 
   void testNullableValidationLogic() {
-    Tariff tariff = new Tariff(id: null, dateCreated: null)
+    TariffDN tariff = new TariffDN(id: null, dateCreated: null)
     assertFalse(tariff.validate())
     assertEquals('nullable', tariff.errors.getFieldError('id').getCode())
     assertEquals('nullable', tariff.errors.getFieldError('transactionId').getCode())
@@ -94,7 +94,7 @@ class TariffTests extends GrailsUnitTestCase {
 
   void testSetAndGetPowerConsumptionPrices() {
     def price = 15.0
-    Tariff tariff = new Tariff()
+    TariffDN tariff = new TariffDN()
     tariff.setFlatPowerConsumptionPrice(price)
     BigDecimal[] array = tariff.getPowerConsumptionPrices()
     assertEquals(24, array.length)
@@ -105,7 +105,7 @@ class TariffTests extends GrailsUnitTestCase {
 
   void testSetAndGetPowerProductionPrices() {
     def price = 15.0
-    Tariff tariff = new Tariff()
+    TariffDN tariff = new TariffDN()
     tariff.setFlatPowerProductionPrice(price)
     BigDecimal[] array = tariff.getPowerProductionPrices()
     assertEquals(24, array.length)
@@ -116,7 +116,7 @@ class TariffTests extends GrailsUnitTestCase {
 
   void testSetPowerConsumptionPricesWithOverlyLongArray() {
 
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     BigDecimal[] array1 = new BigDecimal[30]
     array1.eachWithIndex {val, i -> array1[i] = i as BigDecimal}
     tariff1.setPowerConsumptionPrices(array1)
@@ -130,7 +130,7 @@ class TariffTests extends GrailsUnitTestCase {
 
   void testSetPowerConsumptionPricesWithShortArray() {
 
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     BigDecimal[] array1 = new BigDecimal[5]
     array1.eachWithIndex {val, i -> array1[i] = i as BigDecimal}
     tariff1.setPowerConsumptionPrices(array1)
@@ -148,7 +148,7 @@ class TariffTests extends GrailsUnitTestCase {
 
   void testSetPowerProductionPricesWithOverlyLongArray() {
 
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     BigDecimal[] array1 = new BigDecimal[30]
     array1.eachWithIndex {val, i -> array1[i] = i as BigDecimal}
     tariff1.setPowerProductionPrices(array1)
@@ -162,7 +162,7 @@ class TariffTests extends GrailsUnitTestCase {
 
   void testSetPowerProductionPricesWithShortArray() {
 
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     BigDecimal[] array1 = new BigDecimal[5]
     array1.eachWithIndex {val, i -> array1[i] = i as BigDecimal}
     tariff1.setPowerProductionPrices(array1)
@@ -178,7 +178,7 @@ class TariffTests extends GrailsUnitTestCase {
   }
 
   void testSetPowerConsumptionPriceNullArray() {
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     tariff1.setPowerConsumptionPrices(null)
     def resultArray = tariff1.getPowerConsumptionPrices()
     assertEquals(24, resultArray.length)
@@ -188,7 +188,7 @@ class TariffTests extends GrailsUnitTestCase {
   }
 
   void testSetPowerProductionPriceNullArray() {
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     tariff1.setPowerProductionPrices(null)
     def resultArray = tariff1.getPowerProductionPrices()
     assertEquals(24, resultArray.length)
@@ -198,7 +198,7 @@ class TariffTests extends GrailsUnitTestCase {
   }
 
   void testSetGetPowerConsumptionPriceFor() {
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     def price = 5.0
     tariff1.setPowerConsumptionPriceFor(-1, price)
     tariff1.setPowerConsumptionPriceFor(30, price)
@@ -215,7 +215,7 @@ class TariffTests extends GrailsUnitTestCase {
   }
 
   void testSetGetPowerProductionPriceFor() {
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     def price = 5.0
     tariff1.setPowerProductionPriceFor(-1, price)
     tariff1.setPowerProductionPriceFor(30, price)
@@ -232,7 +232,7 @@ class TariffTests extends GrailsUnitTestCase {
   }
 
   void testSetGetPowerConsumptionPriceForTooLargeRange() {
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     def price = 5.0
     tariff1.setPowerConsumptionPriceForRange(-1, 30, price)
     def resultArray = tariff1.getPowerConsumptionPrices()
@@ -243,7 +243,7 @@ class TariffTests extends GrailsUnitTestCase {
   }
 
   void testSetGetPowerConsumptionPriceForSubRange() {
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     def price = 5.0
     tariff1.setPowerConsumptionPriceForRange(5, 10, price)
     def resultArray = tariff1.getPowerConsumptionPrices()
@@ -261,7 +261,7 @@ class TariffTests extends GrailsUnitTestCase {
 
 
   void testSetGetPowerProductionPriceForTooLargeRange() {
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     def price = 5.0
     tariff1.setPowerProductionPriceForRange(-1, 30, price)
     def resultArray = tariff1.getPowerProductionPrices()
@@ -272,7 +272,7 @@ class TariffTests extends GrailsUnitTestCase {
   }
 
    void testSetGetPowerProductionPriceForReverseRange() {
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     def price = 5.0
     tariff1.setPowerProductionPriceForRange(35, 10, price)
      //this should result in first timeslot to be set = 23 and last timeslot to be set = 23
@@ -285,7 +285,7 @@ class TariffTests extends GrailsUnitTestCase {
   }
 
   void testSetGetPowerConsumptionPriceForReverseRange() {
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     def price = 5.0
     tariff1.setPowerConsumptionPriceForRange(35, 10, price)
      //this should result in first timeslot to be set = 23 and last timeslot to be set = 23
@@ -298,7 +298,7 @@ class TariffTests extends GrailsUnitTestCase {
   }
 
   void testSetGetPowerProductionPriceForSubRange() {
-    Tariff tariff1 = new Tariff()
+    TariffDN tariff1 = new TariffDN()
     def price = 5.0
     tariff1.setPowerProductionPriceForRange(5, 10, price)
     def resultArray = tariff1.getPowerProductionPrices()

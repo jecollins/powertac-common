@@ -19,7 +19,13 @@ package org.powertac.common
 import org.joda.time.LocalDateTime
 import org.powertac.common.enumerations.TariffState
 
-class Tariff implements Serializable {
+
+/**
+ * Denormalized tariff definition, superseded by the richer normalized definition
+ * org.powertac.common.tariff.Tariff.
+ */
+@Deprecated
+class TariffDN implements Serializable {
 
   String id = IdGenerator.createId()
   String transactionId

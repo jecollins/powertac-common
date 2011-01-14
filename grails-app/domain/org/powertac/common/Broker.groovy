@@ -25,7 +25,7 @@ class Broker implements Serializable {
 
   static belongsTo = [competition: Competition]
 
-  static hasMany = [cashUpdates: CashUpdate, positionUpdates: PositionUpdate, shouts: Shout, tariffs: Tariff]
+  static hasMany = [cashUpdates: CashUpdate, positionUpdates: PositionUpdate, shouts: Shout, tariffs: TariffDN]
 
   static constraints = {
     id(nullable: false, blank: false, unique: true)

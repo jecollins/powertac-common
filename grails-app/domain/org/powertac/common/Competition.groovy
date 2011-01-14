@@ -52,7 +52,7 @@ class Competition implements Serializable {
   BigDecimal percentPriceIncrease = 0.05
   BigDecimal priceScaling = 1
 
-  static hasMany = [brokers: Broker, cashUpdates: CashUpdate, customers: Customer, meterReadings: MeterReading, orderbooks: Orderbook, positionUpdates: PositionUpdate, products: Product, shouts: Shout, tariffs: Tariff, timeslots: Timeslot, transactionLogs: TransactionLog]
+  static hasMany = [brokers: Broker, cashUpdates: CashUpdate, customers: Customer, meterReadings: MeterReading, orderbooks: Orderbook, positionUpdates: PositionUpdate, products: Product, shouts: Shout, tariffs: TariffDN, timeslots: Timeslot, transactionLogs: TransactionLog]
 
 
   static namedQueries = {
