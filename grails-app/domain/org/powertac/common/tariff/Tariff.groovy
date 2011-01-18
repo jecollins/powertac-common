@@ -1,11 +1,8 @@
 package org.powertac.common.tariff;
 
-import java.util.List;
 
-import org.joda.time.DateTime;
-import org.joda.time.Duration;
-import org.powertac.common.Broker
-import org.powertac.common.Competition;
+import org.joda.time.Duration
+import org.joda.time.LocalDateTime
 
 /**
  * Represents a Tariff offered by a Broker to customers. A Tariff specifies
@@ -34,16 +31,16 @@ class Tariff implements Serializable
   String id
   
   /** Last date new subscriptions will be accepted */
-  DateTime expiration
+  LocalDateTime expiration
   
   /** Current state of this Tariff */
-  State state = OFFERED
+  State state = State.OFFERED
   
   /** Minimum contract duration */
   Duration minDuration
   
   /** Type of power covered by this tariff */
-  PowerType powerType = CONSUMPTION
+  PowerType powerType = PowerType.CONSUMPTION
   
   /**
    * One-time payment for subscribing to tariff, positive for payment
@@ -61,10 +58,11 @@ class Tariff implements Serializable
   BigDecimal periodicPayment = 0
   
   /** Returns the rate table */
-  Rate[] rates
+  Set<Rate> rates
   
   /** IDs of tariffs superseded by this Tariff */
-  String[] supersedes
+  Set<Tariff> supersedes
+  Tariff isSupersededBy
 
   static hasMany = [rates:Rate, supersedes:String]
   static constraints = {

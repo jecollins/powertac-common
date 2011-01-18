@@ -1,13 +1,11 @@
 package org.powertac.common.tariff
 
-import java.io.Serializable
 import org.joda.time.DateTime
+import org.joda.time.DateTimeFieldType
 import org.joda.time.Duration
 import org.joda.time.Partial
-import org.joda.time.DateTimeFieldType
 
-
-/**
+ /**
  * Tariffs are composed of Rates, all of which are subtypes of this class.
  * Rates may be applicable on particular days of the week, particular times
  * of day, or above some usage threshold.
@@ -15,7 +13,7 @@ import org.joda.time.DateTimeFieldType
  */
 class Rate implements Serializable
 {
-  int id
+  String id
   Tariff tariff
   Partial weeklyBegin // weekly and daily validity
   Partial weeklyEnd
@@ -27,7 +25,7 @@ class Rate implements Serializable
   BigDecimal maxValue
   Duration noticeInterval // notice interval for variable rate
   BigDecimal expectedMean // expected mean value for variable rate
-  def rateHistory = [:] // history of values for variable rate
+  Set<HourlyCharge> rateHistory // history of values for variable rate
 
   static belongsTo = Tariff
   static hasMany = [rateHistory:HourlyCharge]
